@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +26,6 @@
     "url": "https://github.com/BALERA304/TODO-LIST/issues"
   },
   "homepage": "https://github.com/BALERA304/TODO-LIST#readme",
-  "description": ""
+  "description": "",
+  "type": "module"
 }
