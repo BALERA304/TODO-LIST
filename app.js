@@ -4,7 +4,7 @@ let arr = new ArrayObjects
 
 
 console.log(arr.view())
-arr.delete(0)
+// arr.delete(0)
 
 arr.append('Динозавр1')
 arr.append('кукла2')
@@ -20,6 +20,6 @@ console.log(arr.view())
 
 
 arr.delete(5)
-arr.complite(2)
-arr.complite(20)
+arr.completeTask(2)
+// arr.complete(20)
 console.log(arr.view())
