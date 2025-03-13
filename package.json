@@ -1,0 +1,29 @@
+{
+  "name": "todo-mvc",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BALERA304/TODO-LIST.git"
+  },
+  "keywords": [
+    "TODO-LIST",
+    "node.js",
+    "js",
+    "javascript",
+    "todo",
+    "MVC",
+    "mvc",
+    ""
+  ],
+  "author": "BALERA304",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BALERA304/TODO-LIST/issues"
+  },
+  "homepage": "https://github.com/BALERA304/TODO-LIST#readme",
+  "description": ""
+}
