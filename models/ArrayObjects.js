@@ -5,11 +5,11 @@ class Node {
     /**
      * Создает экземпляр задачи.
      * @param {string} text - Текст задачи.
-     * @param {boolean} complited - false если задача не выполнена(по умолчанию), true если задача выполнена.
+     * @param {boolean} completed - false если задача не выполнена(по умолчанию), true если задача выполнена.
      */
     constructor(text) {
         this.text = text;
-        this.сompleted = false;
+        this.completed = false;
     }
 }
 
@@ -34,40 +34,40 @@ export class ArrayObjects {
     }
 
     /**
-     * Удаляет объект из массива по указанному индексу.
-     * Если массив пуст, возвращает предупреждение.
-     * Если индекс указывает на последний элемент, используется метод pop.
-     * @param {number} index - Индекс объекта для удаления.
-     * @return {object|string} Удаленный объект или предупреждение, если массив пуст.
-     */
+    * Удаляет объект из массива по указанному индексу.
+    * Если массив пуст, выбрасывает ошибку.
+    * @param {number} index - Индекс объекта для удаления.
+    * @return {object} Удаленный объект.
+    * @throws {Error} Если массив пуст или индекс недопустим.
+    */
     delete(index) {
         if (this.isEmpty()) {
-            return "Предупреждение: Массив пуст. Удаление невозможно.";
+            throw new Error("Массив пуст. Удаление невозможно.");
         }
 
-        if (index === this.array.length - 1) {
-            return this.array.pop();
+        if (index < 0 || index >= this.array.length) {
+            throw new Error("Индекс выходит за пределы массива.");
         }
 
-        this.array.splice(index, 1);
+        return this.array.splice(index, 1)[0]; // Всегда возвращает удаленный объект
     }
 
     /**
-     * Отмечает задачу как выполненную по указанному индексу.
-     * Если массив пуст или индекс выходит за пределы массива, возвращает предупреждение.
-     * @param {number} index - Индекс задачи для отметки как выполненной.
-     * @return {string|undefined} Предупреждение, если массив пуст или индекс недопустим, иначе undefined.
-     */
-    complite(index) {
+  * Отмечает задачу как выполненную по указанному индексу.
+  * Если массив пуст или индекс выходит за пределы массива, выбрасывает ошибку.
+  * @param {number} index - Индекс задачи для отметки как выполненной.
+  * @throws {Error} Если массив пуст или индекс недопустим.
+  */
+    complete(index) { // Исправлено имя метода
         if (this.isEmpty()) {
-            return "Предупреждение: Массив пуст. Удаление невозможно.";
+            throw new Error("Массив пуст. Удаление невозможно.");
         }
 
-        if (this.array.length - 1 < index) {
-            return "Предупреждение: Индекс выходит за пределы массива.";
+        if (index < 0 || index >= this.array.length) {
+            throw new Error("Индекс выходит за пределы массива.");
         }
 
-        this.array[index]['сompleted'] = true;
+        this.array[index].completed = true; // Исправлено на латиницу
     }
 
     /**
