@@ -43,15 +43,15 @@
 
 - **Создание экземпляра**
   
-  ```javascript
+```javascript
 import { ArrayObjects } from 'array-objects';
 
 const tasks = new ArrayObjects();
 ```
   
 - **Добавление задач**
-	Параметры: `text` (string): текст задачи 
-  ```javascript
+	Параметры: `text` (string): текст задачи
+```javascript
 tasks.append('Скушать печенье');
 tasks.append('Выпить чаю');
 
@@ -59,7 +59,7 @@ tasks.append('Выпить чаю');
 
 - **Просмотр задач** 
 	Возвращает копию массива задач
-  ```javascript
+```javascript
 console.log(tasks.view());
 // Вывод:
 // [
