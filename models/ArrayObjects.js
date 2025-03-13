@@ -60,6 +60,7 @@ export class ArrayObjects {
      * Обновляет задачу по указанному индексу.
      * @param {number} index - Индекс задачи для обновления.
      * @param {string} newText - Новый(обновленный) текст для задачи.
+     * @throws {Error} Если массив пуст или индекс недопустим.
      */
     update(index, newText = null) {
         this.validate(index);
