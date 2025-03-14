@@ -1,25 +1,31 @@
+
+import readline from "readline";
+
 import { ArrayObjects } from "./models/ArrayObjects.js";
 
 let arr = new ArrayObjects
-
-
-console.log(arr.view())
-// arr.delete(0)
-
 arr.append('Динозавр1')
 arr.append('кукла2')
-arr.append('мяч3')
-arr.append('Динозавр4')
-arr.append('кукла5')
-arr.append('мяч6')
-arr.append('Динозавр7')
-arr.append('кукла8')
-arr.append('мяч9')
-
+arr.append('ребенок2')
+console.log(arr.view())
+arr.completeTask(0)
 console.log(arr.view())
 
 
-arr.delete(5)
-arr.completeTask(2)
-// arr.complete(20)
-console.log(arr.view())
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    prompt: 'иди нахуй> '
+});
+rl.prompt(); // Показываем подсказку
+let lines = [];
+
+rl.on('line', (input) => {
+    if (input === 'end') {
+        console.log('Ввод завершен. Содержимое:');
+        console.log(lines.join('\n'));
+        rl.close();
+    } else {
+        lines.push(input);
+    }
+});

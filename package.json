@@ -27,5 +27,8 @@
   },
   "homepage": "https://github.com/BALERA304/TODO-LIST#readme",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "readline": "^1.3.0"
+  }
 }
