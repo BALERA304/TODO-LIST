@@ -1,16 +1,40 @@
-import { ArrayObjects } from "../models/ArrayObjects"
-
 /**
  * Класс, создает контроллер 
  * 
  */
 export class Controller {
-    constructor() {
-        this.tasks = new ArrayObjects
+    constructor(model, print) {
+        this.tasks = model
+        this.print = print
     }
 
 
+    startController() {
 
+    }
+
+    helpController() {
+
+    }
+
+    addTaskController() {
+    }
+
+    updateTaskController(index) {
+
+    }
+
+    deleteTaskController(index) {
+
+    }
+
+    CompletedTaskController(index) {
+
+    }
+
+    showAllTasksController() {
+        this.print.showAllTasksView(this.tasks.view())
+    }
 
 
 }
