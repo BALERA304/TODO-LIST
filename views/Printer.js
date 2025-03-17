@@ -1,6 +1,3 @@
-import readline from "readline"
-
-
 
 /**
  * Класс, выводит сообщения
