@@ -10,7 +10,7 @@ const parser = new Parser
 const model = new ArrayObjects
 const print = new Printer
 const controller = new Controller(model, print)
-const inputHandler = new InputHandler(controller)
+const inputHandler = new InputHandler(controller, parser)
 
 
 
@@ -18,7 +18,7 @@ model.append('Задача номер 1')
 model.append('Задача номер 2')
 model.append('Задача номер 3')
 
-
+inputHandler.start()
 
 
 // console.info(parser.parse('POPA'))

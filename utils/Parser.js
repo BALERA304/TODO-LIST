@@ -6,7 +6,7 @@ export class Parser {
         this.regex = /^(\w+)(?:\s+(\d+))?(?:\s+(.*))?$/
     }
 
-    parse(commandText) {
+    validate(commandText) {
         const match = commandText.match(this.regex);
         if (!match) {
             throw new Error('Неверный формат ввода. Ожидается: команда [число] [текст]');
@@ -16,7 +16,7 @@ export class Parser {
         const number = match[2] ? parseInt(match[2], 10) : null;
         const text = match[3] || null;
 
-        return [command, number, text];
+        return { 'command': command, 'number': number, 'text': text };
     }
 
 }
