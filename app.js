@@ -17,6 +17,9 @@ const inputHandler = new InputHandler(controller, parser)
 model.append('Задача номер 1')
 model.append('Задача номер 2')
 model.append('Задача номер 3')
+// console.log(model.view())
+// model.update(1, 'привет мир')
+// console.log(model.view())
 
 inputHandler.start()
 

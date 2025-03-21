@@ -4,36 +4,39 @@
  */
 export class Controller {
     constructor(model, print) {
-        this.tasks = model
+        this.model = model
         this.print = print
     }
 
-
-    startController() {
-
-    }
-
     helpController() {
-
+        this.print.helpMessageView()
     }
 
-    addTaskController() {
+    addTaskController(args) {
+        if (!args.text) {
+            console.log(`\nНахер пошел\n`)
+        }
+        this.model.append(args.text)
+        this.showAllTasksController()
     }
 
-    updateTaskController(index) {
-
+    updateTaskController(args) {
+        this.model.update(args.number, args.text)
+        this.showAllTasksController()
     }
 
-    deleteTaskController(index) {
-
+    deleteTaskController(args) {
+        this.model.delete(args.number)
+        this.showAllTasksController()
     }
 
-    CompletedTaskController(index) {
-
+    completedTaskController(args) {
+        this.model.completeTask(args.number)
+        this.showAllTasksController()
     }
 
     showAllTasksController() {
-        this.print.showAllTasksView(this.tasks.view())
+        this.print.showAllTasksView(this.model.view())
     }
 
 

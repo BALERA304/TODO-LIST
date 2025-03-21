@@ -41,6 +41,7 @@ export class ArrayObjects {
      * @throws {Error} Если массив пуст или индекс недопустим.
      */
     delete(index) {
+        index -= 1
         this.validate(index);
         return this.array.splice(index, 1)[0]; // Всегда возвращает удаленный объект
     }
@@ -52,6 +53,7 @@ export class ArrayObjects {
      * @throws {Error} Если массив пуст или индекс недопустим.
      */
     completeTask(index) {
+        index -= 1
         this.validate(index);
         this.array[index].completed = true;
     }
@@ -63,6 +65,7 @@ export class ArrayObjects {
      * @throws {Error} Если массив пуст или индекс недопустим.
      */
     update(index, newText = null) {
+        index -= 1
         this.validate(index);
         if (newText !== null) {
             this.array[index].text = newText;
@@ -79,7 +82,7 @@ export class ArrayObjects {
             throw new Error("Массив пуст. Удаление невозможно.");
         }
         if (index < 0 || index >= this.array.length) {
-            throw new Error("Индекс выходит за пределы массива.");
+            throw new Error(`Индекс выходит за пределы массива., ${index}, ${this.array.length}`);
         }
     }
 

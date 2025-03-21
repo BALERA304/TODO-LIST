@@ -11,20 +11,24 @@ export class InputHandler {
         });
         this.commands = {
             add: {
-                handler: (args) => console.log(`Добавление задачи: текст= ${args.text}`),
+                handler: (args) => controller.addTaskController(args),
                 args: ['text']
             },
             delete: {
-                handler: (args) => console.log(`Удаление задачи: номер= ${args.number}`),
+                handler: (args) => controller.deleteTaskController(args),
                 args: ['number']
             },
             update: {
-                handler: (args) => console.log(`Обновление задачи: номер= ${args.number}, текст= ${args.text}`),
+                handler: (args) => controller.updateTaskController(args),
                 args: ['number', 'text']
             },
             complete: {
-                handler: (args) => console.log('Помечена как выполненная: номер= ' + args.number),
+                handler: (args) => controller.completedTaskController(args),
                 args: ['number']
+            },
+            help: {
+                handler: () => controller.helpController(),
+                args: ['']
             }
         };
     }
