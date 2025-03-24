@@ -13,9 +13,6 @@ export class Controller {
     }
 
     addTaskController(args) {
-        if (!args.text) {
-            console.log(`\nНахер пошел\n`)
-        }
         this.model.append(args.text)
         this.showAllTasksController()
     }

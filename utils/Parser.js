@@ -3,7 +3,7 @@
 
 export class Parser {
     constructor() {
-        this.regex = /^(\w+)(?:\s+(\d+))?(?:\s+(.*))?$/
+        this.regex = /^(\w+)(?:\s+(\d+))?(?:\s+([',"])(.*?)\3)?$/
     }
 
     validate(commandText) {
@@ -14,7 +14,7 @@ export class Parser {
 
         const command = match[1];
         const number = match[2] ? parseInt(match[2], 10) : null;
-        const text = match[3] || null;
+        const text = match[4] || null;
 
         return { 'command': command, 'number': number, 'text': text };
     }

@@ -38,7 +38,9 @@ export class InputHandler {
     start() {
         this.rl.question('Введите команду> ', (input) => {
             if (input === 'exit') this.rl.close()
+            console.time('wait')
             this.callController(input)
+            console.timeEnd('wait')
             this.start()
         })
 

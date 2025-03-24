@@ -3,7 +3,7 @@ import { Controller } from "./controllers/Controller.js"
 import { ArrayObjects } from './models/ArrayObjects.js'
 import { Printer } from "./views/Printer.js"
 import { InputHandler } from "./controllers/InputHandler.js"
-import { Parser } from "./utils/parser.js"
+import { Parser } from "./utils/Parser.js"
 
 
 const parser = new Parser
@@ -21,9 +21,12 @@ model.append('Задача номер 3')
 // model.update(1, 'привет мир')
 // console.log(model.view())
 
-inputHandler.start()
+// inputHandler.start()
 
-
+import { styleText } from 'node:util';
+console.log(styleText('green', 'hello'))
+console.log(styleText(["italic", "underline", "red", "bgBlack"], 'hello'))
+console.log('object');
 // console.info(parser.parse('POPA'))
 // console.info(parser.parse('Invalid -1 input'))
 
