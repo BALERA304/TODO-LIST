@@ -4,20 +4,8 @@
  * 
  */
 export class Printer {
-    constructor() {
-
-    }
-
-    showMessage(text) {
-        console.log(text)
-    }
-
-    waitAnswer() {
-
-    }
-
-    startMessageView() {
-
+    constructor(styletext) {
+        this.st = styletext
     }
 
     helpMessageView() {
@@ -25,24 +13,22 @@ export class Printer {
              \n add - добавляет новую задачу в список задач, просто напиши текст задачи после команды`)
     }
 
-    addTaskView(text) {
-
-    }
-
-    updateTaskView(index) {
-
-    }
-
-    deleteTaskView(index) {
-
-    }
-
-    CompletedTaskView(index) {
-
-    }
-
     showAllTasksView(array) {
-        console.log(array)
-    }
+        process.stdout.write('\x1B[?25l')
+        console.log(this.st(['bold', 'underline'], '📋 Все ваши задачи:'));
+        if (array.length === 0) {
+            console.log(this.st('dim', '  — Задач нет —'));
+            return;
+        }
+        array.forEach((task, index) => {
+            const status = task.completed
+                ? this.st(['green', 'bold'], '✓ Сделано')
+                : this.st(['red', 'bold'], '✗ Не выполнено');
 
+            console.log(
+                `  ${this.st(['yellow', 'bold'], `${index + 1}.`)} ${this.st('italic', task.text)}\n` +
+                `  └── Статус: ${status}\n`
+            );
+        });
+    }
 }

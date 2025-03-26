@@ -36,11 +36,11 @@ export class InputHandler {
 
 
     start() {
-        this.rl.question('Введите команду> ', (input) => {
+        process.stdout.write('\x1B[2J\x1B[3J\x1B[H');
+        // this.controller.showAllTasksController()
+        this.rl.question('\x1B[?25h Введите команду>  ', (input) => {
             if (input === 'exit') this.rl.close()
-            console.time('wait')
             this.callController(input)
-            console.timeEnd('wait')
             this.start()
         })
 
@@ -50,11 +50,8 @@ export class InputHandler {
     callController(commandText) {
         const commandParse = this.parser.validate(commandText);
 
-        // Проверяем, существует ли команда в хэш-таблице
         if (this.commands[commandParse.command]) {
             const { handler, args } = this.commands[commandParse.command];
-
-            // Создаем объект с нужными аргументами
             const callArgs = args.reduce((acc, arg) => {
                 if (commandParse[arg] !== undefined) {
                     acc[arg] = commandParse[arg];
@@ -62,7 +59,6 @@ export class InputHandler {
                 return acc;
             }, {});
 
-            // Вызываем обработчик с нужными аргументами
             handler(callArgs);
         } else {
             console.log('Неизвестная команда');
