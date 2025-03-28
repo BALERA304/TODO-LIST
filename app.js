@@ -15,12 +15,8 @@ const inputHandler = new InputHandler(controller, parser)
 
 
 
-// model.append('Помыть картошку')
-// model.append('Понюхать траву')
-// model.append('Закончить Моровинд')
-// model.completeTask(2)
 
 inputHandler.start()
 
-// controller.showAllTasksController()
+
 

@@ -79,10 +79,10 @@ export class ArrayObjects {
      */
     validate(index) {
         if (this.isEmpty()) {
-            throw new Error("Массив пуст. Удаление невозможно.");
+            throw new Error("❌  Список пуст. Удаление невозможно.");
         }
         if (index < 0 || index >= this.array.length) {
-            throw new Error(`Индекс выходит за пределы массива., ${index}, ${this.array.length}`);
+            throw new Error(`❌  Задачи под таким номером не существует.`);
         }
     }
 

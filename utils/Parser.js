@@ -9,7 +9,7 @@ export class Parser {
     validate(commandText) {
         const match = commandText.match(this.regex);
         if (!match) {
-            throw new Error('Неверный формат ввода. Ожидается: команда [число] [текст]');
+            throw new Error('⚠️  Неверный формат ввода. Воспользуйтесь командой help для справки');
         }
 
         const command = match[1];

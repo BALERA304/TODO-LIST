@@ -14,22 +14,26 @@ export class Controller {
 
     addTaskController(args) {
         this.model.append(args.text)
-        this.showAllTasksController()
+
     }
 
     updateTaskController(args) {
         this.model.update(args.number, args.text)
-        this.showAllTasksController()
+
     }
 
     deleteTaskController(args) {
         this.model.delete(args.number)
-        this.showAllTasksController()
+
     }
 
     completedTaskController(args) {
         this.model.completeTask(args.number)
-        this.showAllTasksController()
+
+    }
+
+    showErrorController(error) {
+        this.print.showError(error)
     }
 
     showAllTasksController() {
